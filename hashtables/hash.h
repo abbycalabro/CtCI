@@ -9,7 +9,7 @@ using namespace std;
 
 class myHash {
 private:
-	static const int tableSize = 40;
+	static const int tableSize = 8;
 
 	struct item {
 		string name;
@@ -29,6 +29,7 @@ public:
 	void printTable();
 	void printIndexItems(int index);
 	void findDrink(string name);
+	void removeItem(string name);
 };
 
 #endif
