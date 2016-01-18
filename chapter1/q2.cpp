@@ -17,7 +17,7 @@ bool isPermutation(string str1, string str2) {
 		letters[i] = 0;
 	}
 
-	//iterate through str1, incrementing corresponding ascii value in letters[]
+	//iterate through str1, incrementing corresponding ascii value in letters
 	for(i = 0; i < str1.length(); i++) {
 		val = (int)str1[i];
 		letters[val]++;
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 	string str4 = "world hello1";
 
 	cout << "Perm strings should return 1: " << isPermutation(str1, str2) << endl;
-	cout << "Non-perm strings should return 0: " << isPermutation(str1, str3) << endl;
+	cout << "Non-perm strings with same lengths should return 0: " << isPermutation(str1, str3) << endl;
 	cout << "Strings with different lengths should return 0: " << isPermutation(str1, str4) << endl;
 
 	return 0;
