@@ -19,14 +19,13 @@ int removalInsertion(string shortString, string longString) {
 }
 
 bool oneAway(string str1, string str2) {
-	int i;
 	int diff = 0;
 
 	if(str1 == str2)
 		return true;
 	//if same length, count char differences
 	else if(str1.length() == str2.length()) {
-		for(i = 0; i < str1.length(); i++) {
+		for(int i = 0; i < str1.length(); i++) {
 			if(str1[i] != str2[i])
 				diff++;
 		}	
