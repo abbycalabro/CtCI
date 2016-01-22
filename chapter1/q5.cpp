@@ -4,6 +4,20 @@
 
 using namespace std;
 
+int removalInsertion(string shortString, string longString) {
+	int diff = 0;
+	
+	for(int i = 0; i < longString.length(); i++) {
+		if(shortString[i] != longString[i]) {
+			if(diff == 0)
+				diff++;
+			if(shortString[i] != longString[i + 1])
+				diff++;
+		}
+	}
+	return diff;
+}
+
 bool oneAway(string str1, string str2) {
 	int i;
 	int diff = 0;
@@ -18,26 +32,10 @@ bool oneAway(string str1, string str2) {
 		}	
 	}
 	//if length different by 1, count char differences
-	else if(str1.length() - str2.length() == 1) {
-		for(i = 0; i < str1.length(); i++) {
-			if(str1[i] != str2[i] ) {
-				if(diff == 0)
-					diff++;
-				if(str2[i] != str1[i + 1])
-					diff++;
-			}
-		}
-	}
-	else if(str2.length() - str1.length() == 1) {
-		for(i = 0; i < str2.length(); i++) {
-			if(str1[i] != str2[i]) {
-				if(diff == 0)
-					diff++;
-				if(str1[i] != str2[i + 1])
-					diff++;
-			}
-		}
-	}
+	else if(str1.length() - str2.length() == 1) 
+		diff = removalInsertion(str2, str1);
+	else if(str2.length() - str1.length() == 1) 
+		diff = removalInsertion(str1, str2);
 	//length difference greater than 1
 	else
 		diff = -1;
