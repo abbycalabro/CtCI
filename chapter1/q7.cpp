@@ -5,13 +5,22 @@ using namespace std;
 const int SIZE = 4;
 
 void rotateMatrix(int n, int matrix[SIZE][SIZE]) {
+	/*
+	 * for i = 0 to n:
+	 * temp = top[i]
+	 * top[i] = left[i]
+	 * left[i] = bottom[i]
+	 * bottom[i] = right[i]
+	 * right[i] = temp
+	*/
+	
 	for(int layer = 0; layer < n / 2; ++layer) {
 		int first = layer;
 		int last = n - 1 - layer;
-		//cout << "LAYERS: first = " << first << ", last = " << last << endl;
+		cout << "LAYERS: first = " << first << ", last = " << last << endl;
 		for(int i = first; i < last; ++i) {
 			int offset = i - first;
-			//cout << "Offset = " << offset << endl;
+			cout << "Offset = " << offset << endl;
 			int top = matrix[first][i];
 			
 			//left to top
