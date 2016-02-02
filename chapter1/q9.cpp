@@ -11,17 +11,15 @@ bool isSubstring(string str1, string substring) {
 }	
 
 bool isRotation(string str1, string str2) {
-	if(str1.length() == str2.length()) {
-		for(int	i = 0; i < str1.length(); i++) {
-			if(str1[i] != str2[i]) {
-				if(isSubstring(str2 + str2, str1))
-					return true;
-				else
-					break;
-			}
-		}	
+	//check that string lengths are equal and strings are not empty
+	if(str1.length() == str2.length() && str1.length() > 0) {
+		if(isSubstring(str2 + str2, str1))
+			return true;
+		else
+			return false;
 	}
-	return false;
+	else
+		return false;
 }
 
 int main(int argc, char* argv[]) {
