@@ -48,12 +48,33 @@ void List::DeleteNode(int delData) {
 		delPtr = curr;
 		curr = curr->next;
 		temp->next = curr;
+		if(delPtr == head) {
+			head = head->next;
+			temp = NULL;
+		}
 		delete delPtr;
 		cout << "The value " << delData << " has been deleted.\n";
 	}
 }
 
-int main() {
+void List::PrintList() {
+	curr = head;
+	while(curr != NULL) {
+		cout << curr->data << endl;
+		curr = curr->next;
+	}
+}
+
+int main(int argc, char *argv[]) {
+	List Abby;
+
+	Abby.AddNode(3);
+	Abby.AddNode(5);
+	Abby.AddNode(7);
+	Abby.PrintList();
+
+	Abby.DeleteNode(3);
+	Abby.PrintList();
 
 	return 0;
 }
