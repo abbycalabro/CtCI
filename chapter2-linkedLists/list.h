@@ -14,6 +14,10 @@ class List{
 
 	//public funcs to access private data
 	public:
+		List();  //constructor
+		void AddNode(int addData);
+		void DeleteNode(int delData);
+		void PrintList();
 };
 
 #endif
