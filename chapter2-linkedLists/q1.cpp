@@ -90,6 +90,37 @@ void List::DeleteDups(int dupData) {
 	delete delPtr;
 }
 
+void List::DeleteAllDups() {
+	int hash[128];
+	int asciiVal;
+	nodePtr delPtr;
+	curr = head;
+	temp = head;
+
+	//set hash table vals to 0 
+	for(int i = 0; i < sizeof(hash) / sizeof(int); i++) 
+		hash[i] = 0;
+
+	while(curr != NULL) {
+		asciiVal = int(curr->data);
+		if(hash[asciiVal] == 0) {
+			//first occurrence of dup
+			hash[asciiVal]++;
+			//advance ptrs
+			temp = curr;
+			curr = curr->next;
+		}
+		else {
+			//delete dup node
+			delPtr = curr;
+			curr = curr->next;
+			temp->next = curr;			
+			cout << "Node with dup value " << delPtr->data << " was deleted\n";			
+		}
+	}
+	delete delPtr;
+}
+
 void List::PrintList() {
 	curr = head;
 	while(curr != NULL) {
@@ -109,7 +140,7 @@ int main(int argc, char *argv[]) {
 	Abby.AddNode(7);
 	Abby.PrintList();
 
-	Abby.DeleteDups(7);
+	Abby.DeleteAllDups();
 	Abby.PrintList();
 
 	return 0;

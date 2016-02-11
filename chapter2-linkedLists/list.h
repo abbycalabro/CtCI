@@ -18,6 +18,7 @@ class List{
 		void AddNode(int addData);
 		void DeleteNode(int delData);
 		void DeleteDups(int dupData);
+		void DeleteAllDups();
 		void PrintList();
 };
 
