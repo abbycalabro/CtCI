@@ -90,6 +90,7 @@ void List::DeleteDups(int dupData) {
 	delete delPtr;
 }
 
+//q1, part 2
 void List::DeleteAllDups() {
 	int hash[128];
 	int asciiVal;
@@ -129,6 +130,7 @@ void List::PrintList() {
 	}
 }
 
+//q2
 int List::KthToLast(int k) {
     nodePtr kthToLast = NULL;
     curr = head;
@@ -143,19 +145,19 @@ int List::KthToLast(int k) {
         //start advancing curr
 		while(numNodes < k && curr != NULL) {
             curr = curr->next;
-            numNodes++;
+            if(curr != NULL)
+				numNodes++;
         }
 		//start advancing kthToLast (k - 1) nodes behind curr
         kthToLast = head;
     }
     while(curr != NULL) {
-		if(curr->next != NULL)
-			numNodes++;
 		ans = kthToLast->data;
         curr = curr->next;
         kthToLast = kthToLast->next;
+		if(curr != NULL)
+			numNodes++;
 	}
-	cout << "numNodes = " << numNodes << endl;	
 	//k too high
 	if(k > numNodes)
 		ans = -1;
@@ -180,7 +182,7 @@ int main(int argc, char *argv[]) {
 	cout << "First node returns 1: " << Abby.KthToLast(8) << endl; //k = first node
 	cout << "Last node returns 8: " << Abby.KthToLast(1) << endl; //k = last node
 	cout << "Middle node returns 5: " << Abby.KthToLast(4) << endl; //k = middle node
-	cout << "K = 0 returns 8: " << Abby.KthToLast(0) << endl; //k too low	
+	cout << "K too low returns -1: " << Abby.KthToLast(0) << endl; //k too low	
 	cout << "K too high returns -1: " << Abby.KthToLast(9) << endl; //k too high
 
 	return 0;
