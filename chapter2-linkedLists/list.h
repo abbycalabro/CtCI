@@ -20,6 +20,7 @@ class List{
 		void DeleteDups(int dupData);
 		void DeleteAllDups();
 		void PrintList();
+		int KthToLast(int k);
 };
 
 #endif
