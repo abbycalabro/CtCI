@@ -179,14 +179,20 @@ List::nodePtr List::GetNode(int data) {
 }
 
 //q3
-void List::DeleteMiddleNode(node n) {
+void List::DeleteMiddleNode(nodePtr n) {
 	curr = n;
 
+	//shift every node one to the left 
 	while(curr->next != NULL) {
 		curr->data = curr->next->data;
-		curr->next = curr->next->next;
-		curr = curr->next;
+		//advance curr until reaches penultimate node
+		if(curr->next->next == NULL) 
+			curr->next = NULL;
+		else
+			curr = curr->next;
 	}
+	//set last node to NULL
+	curr = NULL;
 }
 
 int main(int argc, char *argv[]) {
@@ -201,11 +207,13 @@ int main(int argc, char *argv[]) {
 	Abby.AddNode(7);
 	Abby.AddNode(8);
 
-	cout << "Before: ";
+	cout << "Before: \n";
 	Abby.PrintList();
+	cout << endl;
 
-	//Abby.DeleteMiddleNode();
-	//Abby.PrintList();
+	Abby.DeleteMiddleNode(Abby.GetNode(2));
+	cout << "After: \n";
+	Abby.PrintList();
 
 	return 0;
 }

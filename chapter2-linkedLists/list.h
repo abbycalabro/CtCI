@@ -22,7 +22,7 @@ class List{
 		void PrintList();
 		nodePtr GetNode(int data);
 		int KthToLast(int k);
-		void DeleteMiddleNode(node n);
+		void DeleteMiddleNode(nodePtr n);
 };
 
 #endif
