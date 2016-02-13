@@ -21,6 +21,7 @@ class List{
 		void DeleteAllDups();
 		void PrintList();
 		int KthToLast(int k);
+		void DeleteMiddleNode(node n);
 };
 
 #endif
