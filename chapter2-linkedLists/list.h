@@ -20,6 +20,7 @@ class List{
 		void DeleteDups(int dupData);
 		void DeleteAllDups();
 		void PrintList();
+		nodePtr GetNode(int data);
 		int KthToLast(int k);
 		void DeleteMiddleNode(node n);
 };

@@ -165,6 +165,19 @@ int List::KthToLast(int k) {
 	return ans;
 }
 
+List::nodePtr List::GetNode(int data) {
+	curr = head;
+
+	while(curr != NULL) {
+		if(curr->data == data)
+			return curr;
+		else
+			curr = curr->next;
+	}
+	//if node not found, return NULL 
+	return temp;
+}
+
 //q3
 void List::DeleteMiddleNode(node n) {
 	curr = n;
@@ -191,9 +204,8 @@ int main(int argc, char *argv[]) {
 	cout << "Before: ";
 	Abby.PrintList();
 
-
-	Abby.DeleteMiddleNode();
-	Abby.PrintList();
+	//Abby.DeleteMiddleNode();
+	//Abby.PrintList();
 
 	return 0;
 }
