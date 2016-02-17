@@ -24,6 +24,7 @@ class List{
 		int KthToLast(int k);
 		void DeleteMiddleNode(nodePtr n);
 		void Partition(int x);
+		nodePtr SumLists(nodePtr list2);
 };
 
 #endif
