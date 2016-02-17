@@ -196,27 +196,56 @@ void List::DeleteMiddleNode(nodePtr n) {
 }
 
 //q4
-void List::Partition() {
+void List::Partition(int x) {
+	curr = head;
+	nodePtr currLower = NULL; 
+	nodePtr currHigher = NULL;
+    nodePtr	lowerHead = NULL;
+    nodePtr	higherHead = NULL;
 
+	while(curr != NULL) {
+		if(curr->data < x) { 
+			if(currLower == NULL) {
+				lowerHead = curr;
+				currLower = lowerHead;
+			}
+			else {
+				currLower->next = curr;
+				currLower = curr;
+			}
+		}
+		else {
+			if(currHigher == NULL) {
+				higherHead = curr;
+				currHigher = higherHead;
+			}
+			else { 
+				currHigher->next = curr;
+				currHigher = curr;
+			}
+		}
+		curr = curr->next;
+	}
+	head = lowerHead;
+	currLower->next = higherHead;
+	currHigher->next = NULL;
 }
 
 int main(int argc, char *argv[]) {
 	List Abby;
 
-	Abby.AddNode(1);
-	Abby.AddNode(2);
 	Abby.AddNode(3);
-	Abby.AddNode(4);
-	Abby.AddNode(5);
-	Abby.AddNode(6);
 	Abby.AddNode(7);
-	Abby.AddNode(8);
+	Abby.AddNode(1);
+	Abby.AddNode(6);
+	Abby.AddNode(2);
+	Abby.AddNode(4);
 
 	cout << "Before: \n";
 	Abby.PrintList();
 	cout << endl;
 
-	Abby.DeleteMiddleNode(Abby.GetNode(2));
+	Abby.Partition(4);
 	cout << "After: \n";
 	Abby.PrintList();
 

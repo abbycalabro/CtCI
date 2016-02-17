@@ -23,6 +23,7 @@ class List{
 		nodePtr GetNode(int data);
 		int KthToLast(int k);
 		void DeleteMiddleNode(nodePtr n);
+		void Partition(int x);
 };
 
 #endif
